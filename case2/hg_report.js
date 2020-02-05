@@ -44,7 +44,7 @@ var ratingsAvg = ratingsSum / ratingsCount;
 var ratingReport = "<h1>Customer Reviews</h1>";
 ratingReport += "<h2>" + ratingsAvg + " out of 5 stars " + "(" + ratingsCount + " reviews)</h2>";
 
-//creates 3 speech bubble of the first 3 ratings and their opinion on the product
+//creates 3 speech bubbles of the first 3 ratings in the ratings array, with their personal info, review, and rating of the product
 for(var i=0; i<3; i++){
    ratingReport += "<div class='review'>";
    ratingReport += "<h1>" + ratingTitles[i] + "</h1>";
@@ -61,4 +61,5 @@ for(var i=0; i<3; i++){
    ratingReport += "</div>"
 }
 
+//inputs ratingReport variable in the aside element to display the 3 customer reviews
 document.getElementsByTagName("aside")[0].innerHTML = ratingReport;
