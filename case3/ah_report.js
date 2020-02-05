@@ -5,8 +5,8 @@
    Tutorial 10
    Case Problem 3
 
-   Author:  
-   Date:   
+   Author:  Beckham Le
+   Date:    2/5/20
    
    Filename: ah_report.js
    
@@ -27,13 +27,38 @@
       information for the donor
       
 */
+//donationTotal stores the total amount of donations
+var donationTotal = 0;
 
+//calculates the total amount of donations
+donors.forEach(calcSum);
 
+//creates a table that displays the total amount of donors and donation money into the donationSummary div
+var summaryTable = "<table>";
+summaryTable += "<tr><th>Donors</th><td>" + donors.length + "</td></tr>";
+summaryTable += "<tr><th>Total Donations</th><td>$" + donationTotal.toLocaleString() + "</td></tr>";
 
+document.getElementById("donationSummary").innerHTML = summaryTable;
 
+//majorDonors holds the people who donated more than $1000 and sorts them from least to greastest
+var majorDonors = donors.filter(findMajorDonors);
+majorDonors.sort(donorSortDescending);
 
+//makes the html code to make a table of all of the donors and their info by using callbacks 
+var donorTable = "<table>";
+donorTable += "<caption>Major Donors</caption>";
+donorTable += "<tr>";
+donorTable += "<th>Donation</th><th>Donor ID</th>";
+donorTable += "<th>Date</th><th>Name</th><th>Address</th>";
+donorTable += "<th>Phone</th><th>E-mail</th>";
+donorTable += "</tr>";
 
+majorDonors.forEach(writeDonorRow);
 
+donorTable += "</table>";
+
+//displays all of the html code of donorTable into donorTable div
+document.getElementById("donorTable").innerHTML = donorTable;
 
 
 
